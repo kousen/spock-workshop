@@ -2,8 +2,12 @@ package mjg
 
 import spock.lang.Specification
 
-/**
- * Created by kousen on 4/25/14.
- */
 class JavaStringSorterSpec extends Specification {
+    def strings = ['this', 'is', 'a', 'list', 'of', 'strings']
+    JavaStringSorter sorter = new JavaStringSorter()
+
+    def 'sort strings by length'() {
+        expect:
+        sorter.sortStringsByLength(strings)*.size() == [1, 2, 2, 4, 4, 7]
+    }
 }
