@@ -29,6 +29,7 @@ class PersonSpec extends Specification {
     @Unroll
     def '#person.name from #first and #last'() {
         expect:
+        person.name == "$first $last"
         
         where:
                     person                    |  first   | last
