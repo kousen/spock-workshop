@@ -5,7 +5,7 @@ import spock.lang.Unroll;
 
 class UtilityMethodsSpec extends Specification {
 	UtilityMethods um = new GroovyUtilityMethods()
-    List strings = ['racecar', "Madam, in Eden, I'm Adam",
+    List<String> strings = ['racecar', "Madam, in Eden, I'm Adam",
                     'Flee to me, remote elf!', 'Sex at noon taxes']
 
 	def "getPositives should return 1, 2, 3"() {
