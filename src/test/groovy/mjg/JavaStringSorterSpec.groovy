@@ -3,7 +3,7 @@ package mjg
 import spock.lang.Specification
 
 class JavaStringSorterSpec extends Specification {
-    def strings = ['this', 'is', 'a', 'list', 'of', 'strings']
+    def strings = 'this is a list of strings'.split() as List
     JavaStringSorter sorter = new JavaStringSorter()
 
     def 'sort strings by length'() {
