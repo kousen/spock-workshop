@@ -55,7 +55,7 @@ public class JavaUtilityMethods implements UtilityMethods {
     
     @Override
     public int getMinimum(int... values) {
-    		int result = 0;
+    		int result = Integer.MAX_VALUE;
     		for (int val : values) {
     			if (val < result) {
     				result = val;
