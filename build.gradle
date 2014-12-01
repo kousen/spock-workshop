@@ -9,7 +9,7 @@ repositories {
 project.ext.springVersion = '4.0.3.RELEASE'
 
 dependencies {
-    compile "org.codehaus.groovy:groovy-all:2.3.6"
+    compile "org.codehaus.groovy:groovy-all:2.3.8"
     compile "org.springframework:spring-context:$springVersion"
     compile "org.springframework:spring-jdbc:$springVersion"
 
@@ -26,5 +26,5 @@ task collectJars(type: Copy) {
 }
 
 task wrapper(type: Wrapper) { 
-    gradleVersion = "1.12" 
+    gradleVersion = "2.2.1" 
 }
