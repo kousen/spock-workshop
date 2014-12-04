@@ -6,10 +6,10 @@ import spock.lang.Unroll;
 
 class PersonSpec extends Specification {
     def 'name uses first and last'() {
-        when:
-        Person p = new Person(99, "Buffy", "Summers");
+        given:
+        Person p = new Person(99, "Buffy", "Summers")
         
-        then:
+        expect:
         p.name == 'Buffy Summers'
     }
 
