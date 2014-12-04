@@ -6,15 +6,15 @@ import org.springframework.transaction.annotation.Transactional
 import spock.lang.Specification
 import spock.lang.Unroll
 
-@ContextConfiguration("classpath:applicationContext.xml")
-@Transactional
+//@ContextConfiguration("classpath:applicationContext.xml")
+//@Transactional
 class SpringJdbcPersonDAOSpec extends Specification {
 
-    @Autowired
+//    @Autowired
     PersonDAO dao
 
     def 'DAO is injected properly'() {
-        expect: dao
+        // check dao is not null
     }
 
     def 'there are five accounts in the sample database'() {
@@ -23,10 +23,10 @@ class SpringJdbcPersonDAOSpec extends Specification {
     }
 
     @Unroll
-    def "findById with #id works"(Long id) {
+    def "findById with #id works"(/* add id of type Long */) {
         expect:
-        Person p = dao.findById(id)
-        p.id == id
+        // find a person by id and see that it's not null
+        // check that the id of the retrieved person matches id arg
 
         where:
         id << (1..5)
@@ -37,18 +37,21 @@ class SpringJdbcPersonDAOSpec extends Specification {
         Person p = new Person(99, 'Peter Quincy', 'Taggert')
 
         when:
-        dao.insertPerson(p)
+        // insert a person
+        true
 
         then:
-        dao.findAll().size() == old(dao.findAll().size()) + 1
-        dao.findById(p.getId()) == p
+        // check new total is old total + 1
+        true  // remove this line when you add a test
     }
 
     def 'delete everybody (but not really)'() {
         when:
-        dao.findAll().each { Person p -> dao.deletePerson(p.getId()) }
+        // delete all the person instances
+        true
 
         then:
-        dao.findAll().size() == 0
+        // check the number of people is zero
+        true // remove this line when you add your test
     }
 }
