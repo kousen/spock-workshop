@@ -1,8 +1,8 @@
 package mjg
 
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.test.context.ContextConfiguration
-import org.springframework.transaction.annotation.Transactional
+//import org.springframework.beans.factory.annotation.Autowired
+//import org.springframework.test.context.ContextConfiguration
+//import org.springframework.transaction.annotation.Transactional
 import spock.lang.Specification
 import spock.lang.Unroll
 
@@ -19,7 +19,8 @@ class SpringJdbcPersonDAOSpec extends Specification {
 
     def 'there are five accounts in the sample database'() {
         expect:
-        dao.findAll().size() == 5
+        // check the size of findAll to see that it's 5
+        true // remove this line when you add your test
     }
 
     @Unroll
