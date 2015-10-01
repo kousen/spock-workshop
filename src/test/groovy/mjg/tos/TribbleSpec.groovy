@@ -18,6 +18,7 @@ class TribbleSpec extends Specification {
     }
 
     def "reacts well to Vulcans"() {
+        given:
         Vulcan spock = Mock()
         
         when:

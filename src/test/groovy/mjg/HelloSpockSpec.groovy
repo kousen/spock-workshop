@@ -1,5 +1,6 @@
 package mjg
 
+import spock.lang.Specification
 import spock.lang.Unroll;
 /*
  * Copyright 2009 the original author or authors.
@@ -17,7 +18,7 @@ import spock.lang.Unroll;
  * limitations under the License.
  */
 //@Unroll
-class HelloSpock extends spock.lang.Specification {
+class HelloSpockSpec extends Specification {
 	@Unroll
 	def "#name should have #length"(String name, int length) {
 		expect:
