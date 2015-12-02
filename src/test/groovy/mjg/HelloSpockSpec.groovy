@@ -30,7 +30,7 @@ class HelloSpockSpec extends Specification {
 		"Kirk"   | 4
 		"Scotty" | 6
 	}
-	
+
 	def "check lengths using arrays"() {
 		expect: name.size() == length
 
