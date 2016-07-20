@@ -19,6 +19,9 @@ class PalindromeCheckerSpec extends Specification {
     }
 
     def 'all listed strings are palindromes (alternative way)'() {
+//        given:
+//        palindromes << 'this is NOT a palindrome'
+
         expect:
         palindromes.each { str ->
             assert checker.isPalindrome(str) // assert required!

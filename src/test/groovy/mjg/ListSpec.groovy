@@ -8,20 +8,22 @@ class ListSpec extends Specification {
     
     def setup() {
         // initialize the strings var to hold six strings
+        strings = 'this is a list of strings'.split()
     }
 
     def "there are six strings"() {
         // check that there are six strings
+        expect: strings.size() == 6
     }
     
     def "append a string"() {
         when:
         // use the left shift operator to append a new element
-        true
+        strings << 'extra'
 
         then:
         // check that the new size is the old size + 1
-        true // remove this line when you add your test
+        strings.size() == old(strings.size()) + 1
     }
     
     def "NPE if I don't instantiate the list"() {
@@ -30,21 +32,22 @@ class ListSpec extends Specification {
 
         when:
         // append a new element to 'empty'
-        true
+        empty << 'abc'
 
         then:
         // check that a NullPointerException is thrown
-        true // remove this line when you add your test
+        thrown(NullPointerException)
     }
     
-    def 'no exception if I stay inside list'() {
+    def 'no exception even beyond the end of the list'() {
         when:
         // access each element of the list
         // use an index beyond the end of the list
-        true
+        strings[99]
 
         then:
         // verify that NO exceptions are thrown
-        true // remove this line when you add your test
+        // notThrown(NullPointerException)
+        noExceptionThrown()
     }
 }
