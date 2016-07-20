@@ -55,6 +55,7 @@ class JavaUtilityMethodsSpec extends Specification {
      */
     def 'negative arg to isPrime throws IAE'() {
         when:
+        3
 
         then:
         true
