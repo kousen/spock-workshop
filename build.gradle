@@ -3,10 +3,10 @@ apply plugin: "eclipse"
 apply plugin: 'idea'
 
 repositories {
-    mavenCentral()
+    jcenter()
 }
 
-ext.springVersion = '4.1.5.RELEASE'
+ext.springVersion = '4.3.1.RELEASE'
 ext.spockVersion = '1.0-groovy-2.4'
 
 dependencies {
@@ -24,8 +24,4 @@ dependencies {
 task collectJars(type: Copy) {
     into "$buildDir/output/lib"
     from configurations.testRuntime
-}
-
-task wrapper(type: Wrapper) { 
-    gradleVersion = "2.2.1" 
 }
