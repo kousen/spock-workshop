@@ -7,34 +7,34 @@ import spock.lang.Unroll;
 class PersonSpec extends Specification {
     def 'name uses first and last'() {
         given:
-        Person p = new Person(99, "Buffy", "Summers")
-        
+        // instantiate a person using tuple constructor
+
         expect:
-        p.name == 'Buffy Summers'
+        // check that the person's name equals first + last
+        true // remove this line when you add your test
     }
 
     def 'check equals and hashCode using a Set'() {
         given:
-        Person p1 = new Person(99, "Buffy", "Summers")
-        Person p2 = new Person(99, "Buffy", "Summers")
+        // create two persons with the same attributes
 
         when:
-        Set people = [p1, p2]
+        // add them to a Set
+        true
 
         then:
-        p1 == p2
-        people.size() == 1
+        // check that the persons are equal
+        // check that the size of the Set is only one
+        true // remove this line when you add your test
     }
     
     @Unroll
     def '#person.name from #first and #last'() {
         expect:
-        person.name == "$first $last"
-        
-        where:
-                    person                    |  first   | last
-        new Person(99, 'Buffy', 'Summers')    | 'Buffy'  | 'Summers'
-        new Person(98, 'Willow', 'Rosenberg') | 'Willow' | 'Rosenberg'
-        new Person(97, 'Xander', 'Harris')    | 'Xander' | 'Harris'
+        // test that the person's name is equal to first + last
+
+        // where:
+        // use a data table to create a person from first and last
+        true // remove this line when you add your test
     }
 }

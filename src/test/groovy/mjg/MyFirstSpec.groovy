@@ -7,4 +7,8 @@ class MyFirstSpec extends Specification {
         expect:
         Math.max(1, 2) == 2
     }
+
+    // Add a similar test for Math.min
+
+    // Add a test for Math.abs
 }

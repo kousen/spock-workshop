@@ -6,8 +6,12 @@ import spock.lang.Specification;
 class ListSpec extends Specification {
     List strings = 'this is a list of strings'.split()
     
+    def setup() {
+        // initialize the strings var to hold six strings
+    }
+
     def "there are six strings"() {
-        expect: strings.size() == 6
+        // check that there are six strings
     }
 
     def 'left-shift changes the list'() {
@@ -19,13 +23,14 @@ class ListSpec extends Specification {
         strings.size() == 8
     }
 
-    def "left-shift check with old method"() {
+    def "append a string"() {
         when:
-        strings << "plus"
-        strings << "two"
-        
+        // use the left shift operator to append a new element
+        true
+
         then:
-        strings.size() == old(strings.size()) + 2
+        // check that the new size is the old size + 1
+        true // remove this line when you add your test
     }
 
     def 'left-shift changes the list itself'() {
@@ -57,7 +62,7 @@ class ListSpec extends Specification {
     }
 
     def "NPE if I don't instantiate the list"() {
-        when:
+        given:
         List empty
         empty << 'data'
         
@@ -70,8 +75,19 @@ class ListSpec extends Specification {
     def 'no exception if I access outside the list'() {
         when:
         strings[99]
-        
+
         then:
         notThrown()
+    }
+        
+    def 'no exception if I stay inside list'() {
+        when:
+        // access each element of the list
+        // use an index beyond the end of the list
+        true
+
+        then:
+        // verify that NO exceptions are thrown
+        true // remove this line when you add your test
     }
 }

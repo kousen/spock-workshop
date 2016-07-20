@@ -8,22 +8,21 @@ class PalindromeCheckerSpec extends Specification {
 
     def palindromes = [
         'racecar',
-        'Sex at noon taxes',
+        'A Santa pets rats, as Pat taps a star step at NASA.',
         'Do geese see God?',
-        'Flee to me, remote elf!',
-        "Madam, in Eden, I'm Adam",
-        "Go hang a salami; I'm a lasagna hog!"
+        'Flee to me, remote elf!'
     ]
 
     def "all the listed strings are palindromes"() {
-//        given: "a string that isn't a palindrome"
-//        palindromes << 'this is NOT a palindrome'
-
         expect:
         palindromes.every { str -> checker.isPalindrome(str) }
-//        palindromes.each { str ->
-//            assert checker.isPalindrome(str)
-//        }
+    }
+
+    def 'all listed strings are palindromes (alternative way)'() {
+        expect:
+        palindromes.each { str ->
+            assert checker.isPalindrome(str) // assert required!
+        }
     }
 
     def "this is not a palindrome"() {

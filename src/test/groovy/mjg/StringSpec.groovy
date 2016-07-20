@@ -7,25 +7,26 @@ class StringSpec extends Specification {
     String llap = "Live Long and Prosper"
     
     def "LLaP has 21 characters"() {
-        expect: llap.size() == 21
+        // check the size of the string
     }
     
     def "LLaP has 4 words"() {
-        expect: llap.split(/\W/).size() == 4
+        // check that there are four words using split(/\W/)
     }
     
     def "LLaP has 6 vowels"() {
-        expect:
-        llap.findAll(/[aeiou]/).size() == 6
+        // check that there are 6 vowels using findAll(/[aeiou]/)
     }
 	
     def "Access inside the string doesn't throw an exception"() {
         when:
-        llap[0..-1]  // forward
-        llap[-1..0] // backward
+        // access characters using a range from 0 to -1
+        // access characters using a range from -1 to 0
+        true
 
         then:
-        notThrown(IndexOutOfBoundsException)
+        // check that an IndexOutOfBoundsException is NOT thrown
+        true // remove this line when you add your test
     }
 
 	@FailsWith(NullPointerException)
@@ -39,11 +40,14 @@ class StringSpec extends Specification {
 
 	def "Access beyond the end of the string throws exception"() {
 		when:
-        llap[llap.size()]
-        
+        // access the string beyond the end
+        true
+
 		then:
-		IndexOutOfBoundsException e = thrown()
-        e.message == 'String index out of range: 22'
+        // check that an IndexOutOfBoundsException IS thrown
+        // the message of the exception should be 'String index out of range: xx'
+        //   for whatever index you used
+        true // remove this line when you add your test
 	}
 
 }
