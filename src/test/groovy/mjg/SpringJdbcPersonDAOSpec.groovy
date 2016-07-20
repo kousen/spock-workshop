@@ -24,12 +24,14 @@ class SpringJdbcPersonDAOSpec extends Specification {
 
     @Unroll
     def "findById with #id works"(Long id) {
-        expect:
+        when:
         Person p = dao.findById(id)
+
+        then:
         p.id == id
 
         where:
-        id << [1, 2, 3, 4, 5]
+        id << (1..5)
     }
 
     def 'can insert a person'() {
