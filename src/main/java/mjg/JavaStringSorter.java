@@ -8,7 +8,7 @@ public class JavaStringSorter {
 
     // Java 8 lambda
 	public List<String> sortStringsByLength(List<String> strings) {
-		// strings.sort( /* write sort here */ )
+		strings.sort(Comparator.comparingInt(String::length));
         return strings;
 	}
 }
