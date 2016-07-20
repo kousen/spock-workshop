@@ -14,7 +14,7 @@ class ListSpec extends Specification {
         // check that there are six strings
     }
     
-    def "add a string"() {
+    def "append a string"() {
         when:
         // use the left shift operator to append a new element
         true

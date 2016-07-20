@@ -8,11 +8,9 @@ class PalindromeCheckerSpec extends Specification {
 
     def palindromes = [
         'racecar',
-        'Sex at noon taxes',
+        'A Santa pets rats, as Pat taps a star step at NASA.',
         'Do geese see God?',
-        'Flee to me, remote elf!',
-        "Madam, in Eden, I'm Adam",
-        "Go hang a salami; I'm a lasagna hog!"
+        'Flee to me, remote elf!'
     ]
 
     def "all the listed strings are palindromes"() {
