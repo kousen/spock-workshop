@@ -9,14 +9,7 @@ class MyFirstSpec extends Specification {
     }
 
     // Add a similar test for Math.min
-    void 'min of two numbers'() {
-        expect: Math.min(1, 2) == 1
-    }
 
     // Add a test for Math.abs
-    def 'using abs'() {
-        expect:
-        Math.abs(-3) == 3
-        (-3).abs() == 3
-    }
+
 }
