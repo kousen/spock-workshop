@@ -1,16 +1,15 @@
 package mjg
 
-import spock.lang.Specification;
-import spock.lang.Unroll;
+import spock.lang.Specification
 
 class PalindromeCheckerSpec extends Specification {
     PalindromeChecker checker = new PalindromeChecker()
 
     def palindromes = [
-            'racecar',
-            'A Santa pets rats, as Pat taps a star step at NASA.',
-            'Do geese see God?',
-            'Flee to me, remote elf!'
+        'racecar',
+        'A Santa pets rats, as Pat taps a star step at NASA.',
+        'Do geese see God?',
+        'Flee to me, remote elf!'
     ]
 
     def "all the listed strings are palindromes"() {
@@ -29,5 +28,4 @@ class PalindromeCheckerSpec extends Specification {
         expect:
         !checker.isPalindrome('this is NOT a palindrome')
     }
-
 }

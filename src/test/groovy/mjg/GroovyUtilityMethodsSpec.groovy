@@ -35,7 +35,7 @@ class GroovyUtilityMethodsSpec extends Specification {
         um.isPrime(x)
 
         where:
-        x << [2, 3, 5, 7, 11, 13, 17]
+        x << [2, 3, 5, 7, 11, 13, 17, 19, 23]
     }
 
     /**
@@ -77,7 +77,7 @@ class GroovyUtilityMethodsSpec extends Specification {
      */
     def 'this is NOT a palindrome'() {
         expect:
-        !um.isPalindrome('This is NOT a palindrome')
+        !um.isPalindrome('this is NOT a palindrome')
     }
 
     /**
@@ -93,7 +93,7 @@ class GroovyUtilityMethodsSpec extends Specification {
      */
     def 'min with mixed positives and negatives works'() {
         expect:
-        um.getMinimum(3, -1, 4, 1, -5, 9) == -5
+        um.getMinimum(-3, 1, 4, -1, 9, -5) == -5
     }
 
     /**
