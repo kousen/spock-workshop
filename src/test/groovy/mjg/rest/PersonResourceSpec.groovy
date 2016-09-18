@@ -51,7 +51,7 @@ class PersonResourceSpec extends Specification {
         where:
         id |       name
         1  | 'Jean-Luc Picard'
-        2  | 'Johnathan Archer'
+        2  | 'Jonathan Archer'
         3  | 'James Kirk'
         4  | 'Benjamin Sisko'
         5  | 'Kathryn Janeway'
@@ -67,12 +67,12 @@ class PersonResourceSpec extends Specification {
     }
 
     def 'insert and delete a person'() {
-        given: 'A JSON object with first and last names'
+        given: 'A map with first and last names'
         def json = [first: 'Peter Quincy', last: 'Taggart']
 
-        when: 'post the JSON object'
+        when: 'post the map'
         def response = client.post(path: 'people',
-        contentType: ContentType.JSON, body: json)
+            contentType: ContentType.JSON, body: json)
 
         then: 'number of stored objects goes up by one'
         getAll().size() == old(getAll().size()) + 1
@@ -98,7 +98,7 @@ class PersonResourceSpec extends Specification {
 
         when:
         def response = client.put(path: "people/${kirk.data.id}",
-        contentType: ContentType.JSON, body: json)
+            contentType: ContentType.JSON, body: json)
 
         then:
         "$response.data.first $response.data.last" == 'James T. Kirk'
@@ -109,6 +109,6 @@ class PersonResourceSpec extends Specification {
     }
 
     void cleanupSpec() {
-        server?.stop()
+        server?.shutdown()
     }
 }

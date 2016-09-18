@@ -4,7 +4,7 @@ import groovy.sql.Sql
 
 @Singleton
 class JdbcPersonDAO implements PersonDAO {
-    static Sql sql = Sql.newInstance(url:'jdbc:h2:db', driver:'org.h2.Driver')
+    static Sql sql = Sql.newInstance(url:'jdbc:h2:./build/hr', driver:'org.h2.Driver')
 
     static {
         sql.execute 'drop table if exists people'
@@ -20,14 +20,15 @@ class JdbcPersonDAO implements PersonDAO {
 
         sql.execute """
             insert into people values (null, 'Jean-Luc', 'Picard'),
-            (null, 'Johnathan', 'Archer'), (null, 'James', 'Kirk'),
+            (null, 'Jonathan', 'Archer'), (null, 'James', 'Kirk'),
             (null, 'Benjamin', 'Sisko'), (null, 'Kathryn', 'Janeway');
         """
     }
 
     List<Person> findAll() {
         String txt = 'select * from people'
-        sql.rows(txt).collect { row -> new Person(id:row.id, first:row.first, last:row.last) }
+        sql.rows(txt).collect { row ->
+            new Person(id:row.id, first:row.first, last:row.last) }
     }
 
     Person findById(long id) {

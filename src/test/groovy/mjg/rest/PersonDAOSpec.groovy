@@ -7,7 +7,7 @@ import spock.lang.Unroll
 
 class PersonDAOSpec extends Specification {
     @Shared PersonDAO dao = JdbcPersonDAO.instance
-    @Shared Sql sql = Sql.newInstance(url:'jdbc:h2:db',
+    @Shared Sql sql = Sql.newInstance(url:'jdbc:h2:./build/hr',
             driver:'org.h2.Driver')
     
     def 'findAll returns all people'() {
