@@ -34,8 +34,3 @@ dependencies {
 
     runtime 'com.h2database:h2:1.4.187'
 }
-
-task collectJars(type: Copy) {
-    into "$buildDir/output/lib"
-    from configurations.testRuntime
-}
