@@ -17,7 +17,8 @@ class GroovyUtilityMethodsSpec extends Specification {
      */
     def "getPositives should return 1, 2, 3"() {
         expect:
-        true
+        um.getPositives(-3..3 as int[]).every { it > 0 }
+        um.getPositives(3, 1, -4, -1, -5, -9, 2).every { it > 0 }
     }
 
     /**
@@ -28,12 +29,13 @@ class GroovyUtilityMethodsSpec extends Specification {
      * Use the "where" variable in the test definition using #
      * Add an @Unroll annotation
      */
+    @Unroll
     def '#x is prime'() {
         expect:
-        true
+        um.isPrime(x)
 
         where:
-        x << []
+        x << [2, 3, 5, 7, 11, 13, 17, 19, 23]
     }
 
     /**
@@ -42,10 +44,10 @@ class GroovyUtilityMethodsSpec extends Specification {
      */
     def '2, 3, 5, 7, 11, 13 are prime'() {
         given: 'a set of prime numbers'
-        def primes = []
+        def primes = [2, 3, 5, 7, 11, 13]
 
         expect: 'all of them are prime'
-        true
+        primes.every { um.isPrime(it) }
     }
 
     /**
@@ -55,9 +57,11 @@ class GroovyUtilityMethodsSpec extends Specification {
      */
     def 'negative arg to isPrime throws IAE'() {
         when:
+        um.isPrime(-3)
 
         then:
-        true
+        IllegalArgumentException e = thrown()
+        e.message == 'argument must be > 0'
     }
 
     /**
@@ -65,7 +69,7 @@ class GroovyUtilityMethodsSpec extends Specification {
      */
     def 'these are palindromes'() {
         expect:
-        true
+        palindromes.every { um.isPalindrome(it) }
     }
 
     /**
@@ -73,7 +77,7 @@ class GroovyUtilityMethodsSpec extends Specification {
      */
     def 'this is NOT a palindrome'() {
         expect:
-        !false
+        !um.isPalindrome('this is NOT a palindrome')
     }
 
     /**
@@ -81,7 +85,7 @@ class GroovyUtilityMethodsSpec extends Specification {
      */
     def 'min with all positives works'() {
         expect:
-        true
+        um.getMinimum(3, 1, 4, 1, 5, 9) == 1
     }
 
     /**
@@ -89,7 +93,7 @@ class GroovyUtilityMethodsSpec extends Specification {
      */
     def 'min with mixed positives and negatives works'() {
         expect:
-        true
+        um.getMinimum(-3, 1, 4, -1, 9, -5) == -5
     }
 
     /**
@@ -97,6 +101,6 @@ class GroovyUtilityMethodsSpec extends Specification {
      */
     def 'min with all negatives works'() {
         expect:
-        true
+        um.getMinimum(-3, -1, -4, -5, -9) == -9
     }
 }

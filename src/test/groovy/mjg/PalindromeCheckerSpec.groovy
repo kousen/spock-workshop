@@ -1,7 +1,6 @@
 package mjg
 
-import spock.lang.Specification;
-import spock.lang.Unroll;
+import spock.lang.Specification
 
 class PalindromeCheckerSpec extends Specification {
     PalindromeChecker checker = new PalindromeChecker()
@@ -29,5 +28,4 @@ class PalindromeCheckerSpec extends Specification {
         expect:
         !checker.isPalindrome('this is NOT a palindrome')
     }
-
 }
