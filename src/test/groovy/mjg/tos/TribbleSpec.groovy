@@ -3,7 +3,7 @@ package mjg.tos
 import mjg.tng.Klingon;
 import spock.lang.Specification
 
-class xTribbleSpec extends Specification {
+class TribbleSpec extends Specification {
     Tribble tribble = new Tribble()
 
     def "feed a tribble, get more tribbles"() {
@@ -40,7 +40,7 @@ class xTribbleSpec extends Specification {
         }
         0 * koloth.howlAtDeath()
         reaction == null
-        Exception e = thrown()
+        thrown(Exception)
     }
     
     def "number of tribbles in storage compartment"() {
