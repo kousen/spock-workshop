@@ -6,13 +6,13 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 class PersonDAOSpec extends Specification {
-    @Shared PersonDAO dao = JdbcPersonDAO.instance
+    PersonDAO dao = JdbcPersonDAO.instance
     @Shared Sql sql = Sql.newInstance(url:'jdbc:h2:./build/hr',
             driver:'org.h2.Driver')
     
     def 'findAll returns all people'() {
         when:
-        def people = dao.findAll()
+        List<Person> people = dao.findAll()
         
         then:
         5 == people.size()

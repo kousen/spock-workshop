@@ -4,7 +4,8 @@ import groovy.sql.Sql
 
 @Singleton
 class JdbcPersonDAO implements PersonDAO {
-    static Sql sql = Sql.newInstance(url:'jdbc:h2:./build/hr', driver:'org.h2.Driver')
+    static Sql sql = Sql.newInstance(url:'jdbc:h2:./build/hr',
+            driver:'org.h2.Driver')
 
     static {
         sql.execute 'drop table if exists people'
