@@ -6,9 +6,7 @@ import spock.lang.Unroll
 class MyFirstSpec extends Specification {
 
     @Unroll
-    def 'max of #first and #second is #result'(Integer result,
-                                               Integer first,
-                                               Integer second) {
+    def 'max of #first and #second is #result'() {
         expect:
         result == Math.max(first, second)
 
@@ -44,7 +42,7 @@ class MyFirstSpec extends Specification {
     }
 
 
-    def "max of two numbers"() {
+    def "max of 1 and 2 should be 2"() {
         expect:
         Math.max(1, 2) == 2
     }

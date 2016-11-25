@@ -36,15 +36,17 @@ class PersonResourceSpec extends Specification {
 			data.size() == 5
 		}
 		
-//        response.status == 200
-//        response.contentType == 'application/json'
-//        response.data.size() == 5
+//        response?.status == 200
+//        response?.contentType == 'application/json'
+//        response?.data.size() == 5
     }
 
     @Unroll
     def "people/#id gives #name"() {
-        expect:
+        when:
         def response = client.get(path: "people/$id")
+
+        then:
         name == "$response.data.first $response.data.last"
         response.status == 200
 
@@ -82,6 +84,7 @@ class PersonResourceSpec extends Specification {
             status == 201
             contentType == 'application/json'
             headers.Location == "http://localhost:1234/people/${response.data.id}"
+            println headers.Location
         }
 
         when: 'delete the new JSON object'
@@ -109,6 +112,6 @@ class PersonResourceSpec extends Specification {
     }
 
     void cleanupSpec() {
-        server?.shutdown()
+        server?.shutdownNow()
     }
 }

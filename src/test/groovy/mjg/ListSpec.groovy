@@ -99,7 +99,7 @@ class ListSpec extends Specification {
 
         then:
         // verify that NO exceptions are thrown
-        // notThrown(NullPointerException)
+        // notThrown(ArrayIndexOutOfBoundsException)
         noExceptionThrown()
     }
 }
