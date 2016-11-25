@@ -66,6 +66,8 @@ class ListSpec extends Specification {
     def "NPE if I don't instantiate the list"() {
         given:
         List empty
+
+        when:
         empty << 'data'
         
         then:
@@ -73,33 +75,27 @@ class ListSpec extends Specification {
         // NullPointerException e = thrown()
         e.message == 'Cannot invoke method leftShift() on null object'
     }
-    
-    def 'no exception if I access outside the list'() {
-        when:
-        strings[99]
 
-        then:
-        noExceptionThrown()
-    }
-        
     def 'no exception if I stay inside list'() {
-        // append a new element to 'empty'
-        empty << 'abc'
+        when:
+        // access an element at index "index" where index goes from 0 to 5
+        strings[index]
 
         then:
-        // check that a NullPointerException is thrown
-        thrown(NullPointerException)
+        // check that an ArrayIndexOutOfBoundsException is not thrown
+        notThrown(ArrayIndexOutOfBoundsException)
+
+        where:
+        index << (0..5)
     }
     
     def 'no exception even beyond the end of the list'() {
         when:
-        // access each element of the list
-        // use an index beyond the end of the list
+        // access the list at an index beyond the end of the list
         strings[99]
 
         then:
         // verify that NO exceptions are thrown
-        // notThrown(ArrayIndexOutOfBoundsException)
         noExceptionThrown()
     }
 }

@@ -23,7 +23,7 @@ class MyFirstSpec extends Specification {
 
         where:
         result << [2, 7, 5]
-        first << [1, 3, 5]
+        first  << [1, 3, 5]
         second << [2, 7, 5]
     }
 

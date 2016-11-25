@@ -40,13 +40,13 @@ class GroovyUtilityMethodsSpec extends Specification {
 
     /**
      * Fill in "given" with a collection of primes
-     * Use "every" from Groovy to verify all are prime
+     * Use "every" from Groovy to verify every number in set is prime
      */
     def '2, 3, 5, 7, 11, 13 are prime'() {
         given: 'a set of prime numbers'
         def primes = [2, 3, 5, 7, 11, 13]
 
-        expect: 'all of them are prime'
+        expect: 'every number in the set is prime'
         primes.every { um.isPrime(it) }
     }
 
