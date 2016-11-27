@@ -51,12 +51,12 @@ class PersonResourceSpec extends Specification {
         response.status == 200
 
         where:
-        id |       name
-        1  | 'Jean-Luc Picard'
-        2  | 'Jonathan Archer'
-        3  | 'James Kirk'
-        4  | 'Benjamin Sisko'
-        5  | 'Kathryn Janeway'
+        id ||       name
+        1  || 'Jean-Luc Picard'
+        2  || 'Jonathan Archer'
+        3  || 'James Kirk'
+        4  || 'Benjamin Sisko'
+        5  || 'Kathryn Janeway'
     }
 
     def 'people/lastname/{like} searches for last names that include given string'() {
