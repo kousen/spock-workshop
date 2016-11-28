@@ -55,7 +55,7 @@ class MyFirstSpec extends Specification {
 
     // Add a test for Math.abs
     def 'using abs'() {
-        expect:
+        expect:re
         Math.abs(-3) == 3
         (-3).abs() == 3
     }

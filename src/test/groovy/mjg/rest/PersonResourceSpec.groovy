@@ -2,10 +2,8 @@ package mjg.rest
 
 import groovyx.net.http.ContentType
 import groovyx.net.http.RESTClient
-
 import org.glassfish.grizzly.http.server.HttpServer
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory
-
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll

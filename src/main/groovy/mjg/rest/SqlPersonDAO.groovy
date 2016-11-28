@@ -3,7 +3,7 @@ package mjg.rest
 import groovy.sql.Sql
 
 @Singleton
-class JdbcPersonDAO implements PersonDAO {
+class SqlPersonDAO implements PersonDAO {
     static Sql sql = Sql.newInstance(url:'jdbc:h2:./build/hr',
             driver:'org.h2.Driver')
 
