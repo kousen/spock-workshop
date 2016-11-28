@@ -2,10 +2,8 @@ package mjg.rest
 
 import groovyx.net.http.ContentType
 import groovyx.net.http.RESTClient
-
 import org.glassfish.grizzly.http.server.HttpServer
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory
-
 import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll
@@ -51,12 +49,12 @@ class PersonResourceSpec extends Specification {
         response.status == 200
 
         where:
-        id |       name
-        1  | 'Jean-Luc Picard'
-        2  | 'Jonathan Archer'
-        3  | 'James Kirk'
-        4  | 'Benjamin Sisko'
-        5  | 'Kathryn Janeway'
+        id ||       name
+        1  || 'Jean-Luc Picard'
+        2  || 'Jonathan Archer'
+        3  || 'James Kirk'
+        4  || 'Benjamin Sisko'
+        5  || 'Kathryn Janeway'
     }
 
     def 'people/lastname/{like} searches for last names that include given string'() {
