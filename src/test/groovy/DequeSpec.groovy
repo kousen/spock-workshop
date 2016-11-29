@@ -3,6 +3,14 @@ import spock.lang.Specification
 class DequeSpec extends Specification {
     Deque deque = [1, 2, 3] as ArrayDeque
 
+    def 'deque is reinstantiated between where loops'() {
+        expect:
+        val == deque.pollFirst()
+
+        where:
+        val << [1, 1, 1] // not 1, 2, 3 (!)
+    }
+
     def 'size of deque ought to be 3'() {
         expect:
         deque.size() == 3
@@ -61,6 +69,20 @@ class DequeSpec extends Specification {
         deque.pollFirst() == 1
         deque.pollFirst() == 2
         deque.pollFirst() == 3
+    }
+
+    def 'offer and poll using where block'() {
+        given:
+        Deque deque1 = new ArrayDeque()
+
+        when:
+        deque1.offerFirst(val)
+
+        then:
+        val == deque1.pollLast()
+
+        where:
+        val << [1, 2, 3]
     }
 
     def 'pollFirst on empty deque does not throw exception'() {
