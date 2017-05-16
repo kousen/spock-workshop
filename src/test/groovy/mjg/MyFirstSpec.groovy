@@ -28,9 +28,7 @@ class MyFirstSpec extends Specification {
     }
 
     @Unroll
-    def 'max (data table) of #first and #second is #result'(Integer result,
-                                                            Integer first,
-                                                            Integer second) {
+    def 'max (data table) of #first and #second is #result'() {
         expect:
         result == Math.max(first, second)
 
