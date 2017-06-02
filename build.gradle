@@ -31,6 +31,11 @@ dependencies {
     compile 'org.glassfish.jersey.containers:jersey-container-grizzly2-http:2.24.1'
     compile 'org.glassfish.jersey.media:jersey-media-json-jackson:2.24.1'
     testCompile 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
+    // https://mvnrepository.com/artifact/net.bytebuddy/byte-buddy
+    testCompile group: 'net.bytebuddy', name: 'byte-buddy-dep', version: '1.7.0'
+// https://mvnrepository.com/artifact/org.objenesis/objenesis
+    testCompile group: 'org.objenesis', name: 'objenesis', version: '2.5.1'
+
 
     runtime 'com.h2database:h2:1.4.187'
 }
