@@ -9,3 +9,4 @@ build
 .settings
 bin
 .idea
+out

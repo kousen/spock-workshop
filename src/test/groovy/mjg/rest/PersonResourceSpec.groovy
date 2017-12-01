@@ -9,8 +9,10 @@ import spock.lang.Specification
 import spock.lang.Unroll
 
 class PersonResourceSpec extends Specification {
-    @Shared HttpServer server
-    @Shared RESTClient client =
+    @Shared
+    HttpServer server
+    @Shared
+    RESTClient client =
             new RESTClient('http://localhost:1234/',
                     ContentType.JSON)
 
@@ -20,7 +22,8 @@ class PersonResourceSpec extends Specification {
     }
 
     def 'server is running'() {
-        expect: server.started
+        expect:
+        server.started
     }
 
     def 'get request returns all people'() {
@@ -28,12 +31,12 @@ class PersonResourceSpec extends Specification {
         def response = client.get(path: 'people')
 
         then:
-		with(response) {
-			status == 200
-			contentType == 'application/json'
-			data.size() == 5
-		}
-		
+        with(response) {
+            status == 200
+            contentType == 'application/json'
+            data.size() == 5
+        }
+
 //        response?.status == 200
 //        response?.contentType == 'application/json'
 //        response?.data.size() == 5
@@ -49,7 +52,7 @@ class PersonResourceSpec extends Specification {
         response.status == 200
 
         where:
-        id ||       name
+        id || name
         1  || 'Jean-Luc Picard'
         2  || 'Jonathan Archer'
         3  || 'James Kirk'
@@ -72,7 +75,7 @@ class PersonResourceSpec extends Specification {
 
         when: 'post the map'
         def response = client.post(path: 'people',
-            contentType: ContentType.JSON, body: json)
+                contentType: ContentType.JSON, body: json)
 
         then: 'number of stored objects goes up by one'
         getAll().size() == old(getAll().size()) + 1
@@ -95,11 +98,11 @@ class PersonResourceSpec extends Specification {
     def 'can update an existing person'() {
         given:
         def kirk = client.get(path: 'people/3')
-        def json = [id: 3, first:'James T.', last: 'Kirk']
+        def json = [id: 3, first: 'James T.', last: 'Kirk']
 
         when:
         def response = client.put(path: "people/${kirk.data.id}",
-            contentType: ContentType.JSON, body: json)
+                contentType: ContentType.JSON, body: json)
 
         then:
         "$response.data.first $response.data.last" == 'James T. Kirk'

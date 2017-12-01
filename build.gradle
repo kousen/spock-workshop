@@ -20,7 +20,7 @@ ext.springVersion = '4.3.8.RELEASE'
 ext.spockVersion = '1.1-groovy-2.4'
 
 dependencies {
-    compile "org.codehaus.groovy:groovy-all:2.4.11"
+    compile "org.codehaus.groovy:groovy-all:2.4.13"
     compile "org.springframework:spring-context:$springVersion"
     compile "org.springframework:spring-jdbc:$springVersion"
 
