@@ -8,5 +8,5 @@ build
 .classpath
 .settings
 bin
-.idea/
+.idea
 out
