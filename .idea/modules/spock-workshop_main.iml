@@ -2,7 +2,12 @@
 <module external.linked.project.id="spock-workshop:main" external.linked.project.path="$MODULE_DIR$/../.." external.root.project.path="$MODULE_DIR$/../.." external.system.id="GRADLE" external.system.module.group="" external.system.module.type="sourceSet" external.system.module.version="unspecified" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false" />
+        <fileset id="fileset2" name="Spring Application Context (2)" removed="false">
+          <file>file://$MODULE_DIR$/../../src/main/resources/applicationContext.xml</file>
+        </fileset>
+      </configuration>
     </facet>
   </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
@@ -16,16 +21,16 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Gradle: org.codehaus.groovy:groovy-all:2.4.13" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-context:4.3.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-jdbc:4.3.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-context:5.0.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-jdbc:5.0.2.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.glassfish.jersey.containers:jersey-container-grizzly2-http:2.24.1" level="project" />
     <orderEntry type="library" name="Gradle: org.glassfish.jersey.media:jersey-media-json-jackson:2.24.1" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-aop:4.3.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-tx:4.3.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-beans:4.3.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-expression:4.3.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-aop:5.0.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-tx:5.0.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-beans:5.0.2.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: com.h2database:h2:1.4.187" level="project" />
-    <orderEntry type="library" name="Gradle: org.springframework:spring-core:4.3.8.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-expression:5.0.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-core:5.0.2.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.glassfish.jersey.core:jersey-server:2.24.1" level="project" />
     <orderEntry type="library" name="Gradle: org.glassfish.jersey.core:jersey-client:2.24.1" level="project" />
     <orderEntry type="library" name="Gradle: org.glassfish.jersey.media:jersey-media-jaxb:2.24.1" level="project" />
@@ -40,7 +45,7 @@
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.module:jackson-module-jaxb-annotations:2.5.4" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-databind:2.5.4" level="project" />
     <orderEntry type="library" name="Gradle: com.fasterxml.jackson.core:jackson-annotations:2.5.4" level="project" />
-    <orderEntry type="library" name="Gradle: commons-logging:commons-logging:1.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.springframework:spring-jcl:5.0.2.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.glassfish.grizzly:grizzly-http:2.3.23" level="project" />
     <orderEntry type="library" name="Gradle: javax.annotation:javax.annotation-api:1.2" level="project" />
     <orderEntry type="library" name="Gradle: org.glassfish.jersey.bundles.repackaged:jersey-guava:2.24.1" level="project" />

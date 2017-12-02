@@ -50,11 +50,10 @@ public class Person {
 
         Person person = (Person) o;
 
-        if (first != null ? !first.equals(person.first) : person.first != null) return false;
-        if (id != null ? !id.equals(person.id) : person.id != null) return false;
-        if (last != null ? !last.equals(person.last) : person.last != null) return false;
-
-        return true;
+        return (first != null ? first.equals(person.first) :
+                person.first == null) && (id != null ? id.equals(person.id) :
+                person.id == null) && (last != null ? last.equals(person.last) :
+                person.last == null);
     }
 
     @Override
