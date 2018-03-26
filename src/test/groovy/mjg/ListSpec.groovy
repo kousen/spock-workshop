@@ -6,10 +6,10 @@ import spock.lang.Specification
 class ListSpec extends Specification {
     List strings = 'this is a list of strings'.split()
     
-    def setup() {
-        // initialize the strings var to hold six strings
-        strings = 'this is a list of strings'.split()
-    }
+//    def setup() {
+//        // initialize the strings var to hold six strings
+//        strings = 'this is a list of strings'.split()
+//    }
 
     def "there are six strings"() {
         // check that there are six strings

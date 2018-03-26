@@ -1,5 +1,6 @@
 package mjg
 
+import org.junit.Before
 import spock.lang.Specification
 
 class PalindromeCheckerSpec extends Specification {
@@ -11,6 +12,11 @@ class PalindromeCheckerSpec extends Specification {
         'Do geese see God?',
         'Flee to me, remote elf!'
     ]
+
+    @Before
+    void start() {
+        println 'pre-processing...'
+    }
 
     def "all the listed strings are palindromes"() {
         expect:
