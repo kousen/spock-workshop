@@ -47,7 +47,9 @@ public class SpringJdbcPersonDAO implements PersonDAO {
     private final static class PersonMapper implements RowMapper<Person> {
         @Override
         public Person mapRow(ResultSet rs, int rowNum) throws SQLException {
-            return new Person(rs.getLong("id"), rs.getString("first"), rs.getString("last"));
+            return new Person(rs.getLong("id"),
+                    rs.getString("first"),
+                    rs.getString("last"));
         }
     }
 

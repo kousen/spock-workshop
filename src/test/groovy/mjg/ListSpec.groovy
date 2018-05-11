@@ -1,6 +1,5 @@
 package mjg
 
-import spock.lang.Ignore
 import spock.lang.Specification
 
 class ListSpec extends Specification {

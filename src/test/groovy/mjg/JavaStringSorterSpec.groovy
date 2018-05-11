@@ -7,7 +7,14 @@ class JavaStringSorterSpec extends Specification {
     JavaStringSorter sorter = new JavaStringSorter()
 
     def 'sort strings by length'() {
-        expect:
-        sorter.sortStringsByLength(strings)*.size() == [1, 2, 2, 4, 4, 7]
+        given:
+        println strings
+
+        when:
+        List sorted = sorter.sortStringsByLength(strings)
+
+        then:
+        println sorted
+        sorted*.size() == [1, 2, 2, 4, 4, 7]
     }
 }
