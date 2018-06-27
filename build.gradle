@@ -20,24 +20,33 @@ ext.springVersion = '5.0.7.RELEASE'
 ext.spockVersion = '1.1-groovy-2.4'
 
 dependencies {
-    implementation "org.codehaus.groovy:groovy-all:2.4.13"
+    implementation "org.codehaus.groovy:groovy-all:2.4.15"
     implementation "org.springframework:spring-context:$springVersion"
     implementation "org.springframework:spring-jdbc:$springVersion"
 
     // Java EE
     implementation 'javax.xml.bind:jaxb-api:2.3.0'
-    implementation 'javax.activation:javax.activation-api:1.2.0'
+    implementation 'com.sun.xml.bind:jaxb-core:2.3.0'
+    implementation 'com.sun.xml.bind:jaxb-impl:2.3.0'
+    implementation 'com.sun.activation:javax.activation:1.2.0'
 
+    // Spring 5
     testImplementation "org.spockframework:spock-core:$spockVersion"
     testImplementation "org.springframework:spring-test:$springVersion"
     testImplementation "org.spockframework:spock-spring:$spockVersion"
 
+    // Jersey
     implementation 'org.glassfish.jersey.containers:jersey-container-grizzly2-http:2.27'
     implementation 'org.glassfish.jersey.inject:jersey-hk2:2.27'
     implementation 'org.glassfish.jersey.media:jersey-media-json-jackson:2.27'
-    testImplementation 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
-    testImplementation group: 'net.bytebuddy', name: 'byte-buddy-dep', version: '1.8.12'
-    testImplementation group: 'org.objenesis', name: 'objenesis', version: '2.6'
 
+    // REST client
+    testImplementation 'org.codehaus.groovy.modules.http-builder:http-builder:0.7.1'
+
+    // Mocking libraries
+    testImplementation 'net.bytebuddy:byte-buddy-dep:1.8.12'
+    testImplementation 'org.objenesis:objenesis:2.6'
+
+    // Database
     runtime 'com.h2database:h2:1.4.187'
 }
