@@ -54,7 +54,12 @@ class StringSpec extends Specification {
         // the message of the exception should be 'String index out of range: xx'
         //   for whatever index you used
         IndexOutOfBoundsException e = thrown()
-        e.message == 'String index out of range: 100'
+
+        // Java 8
+        // e.message == 'String index out of range: 100'
+
+        // Java 10
+        e.message == 'begin 99, end 100, length 21'
 	}
 
 }
