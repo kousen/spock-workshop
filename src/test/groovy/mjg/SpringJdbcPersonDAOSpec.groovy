@@ -14,7 +14,9 @@ class SpringJdbcPersonDAOSpec extends Specification {
     PersonDAO dao
 
     def 'DAO is injected properly'() {
-        expect: dao
+        expect:
+        dao
+        dao.class == SpringJdbcPersonDAO
     }
 
     def 'there are five persons in the sample database'() {

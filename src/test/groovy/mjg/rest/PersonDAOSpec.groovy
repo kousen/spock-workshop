@@ -5,6 +5,9 @@ import spock.lang.Shared
 import spock.lang.Specification
 import spock.lang.Unroll
 
+import static org.hamcrest.MatcherAssert.assertThat
+import static org.hamcrest.Matchers.containsInAnyOrder
+
 class PersonDAOSpec extends Specification {
     PersonDAO dao = SqlPersonDAO.instance
     @Shared Sql sql = Sql.newInstance(url:'jdbc:h2:./build/hr', driver:'org.h2.Driver')
@@ -12,7 +15,9 @@ class PersonDAOSpec extends Specification {
     def 'findAll returns all people'() {
         when:
         List<Person> people = dao.findAll()
-        
+
+        List<String> lastNames = people*.last
+
         then:
         5 == people.size()
         ['Archer', 'Picard', 'Kirk', 'Sisko', 'Janeway'].every {
@@ -22,6 +27,8 @@ class PersonDAOSpec extends Specification {
 //			assert people.last.contains(it)
 //		}
 
+        assertThat(lastNames,
+                containsInAnyOrder('Kirk', 'Picard', 'Sisko', 'Janeway', 'Archer'))
     }
 
     @Unroll

@@ -7,10 +7,10 @@ class PalindromeCheckerSpec extends Specification {
     PalindromeChecker checker = new PalindromeChecker()
 
     def palindromes = [
-        'racecar',
-        'A Santa pets rats, as Pat taps a star step at NASA.',
-        'Do geese see God?',
-        'Flee to me, remote elf!'
+            'racecar',
+            'A Santa pets rats, as Pat taps a star step at NASA.',
+            'Do geese see God?',
+            'Flee to me, remote elf!'
     ]
 
     @Before
@@ -28,6 +28,12 @@ class PalindromeCheckerSpec extends Specification {
         palindromes.each { str ->
             assert checker.isPalindrome(str) // assert required!
         }
+    }
+
+    def 'all the strings are palindromes (Java version)'() {
+        expect:
+        palindromes.stream()
+            .allMatch { checker.isPalindrome(it) }
     }
 
     def "this is not a palindrome"() {

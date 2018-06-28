@@ -68,5 +68,6 @@ class ArrayListSpec extends Specification {
         then:
         noExceptionThrown()
         nums[-1] == 'abc'
+        println nums
     }
 }
