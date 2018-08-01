@@ -45,6 +45,9 @@ class StringSpec extends Specification {
     }
 
 	def "Access beyond the end of the string throws exception"() {
+        given:
+        String javaVersion = System.getProperty('java.version')
+
 		when:
         // access the string beyond the end
         llap[99]
@@ -55,11 +58,11 @@ class StringSpec extends Specification {
         //   for whatever index you used
         IndexOutOfBoundsException e = thrown()
 
-        // Java 8
-        // e.message == 'String index out of range: 100'
-
-        // Java 10
-        e.message == 'begin 99, end 100, length 21'
+        if (javaVersion.startsWith('1.8')) {
+            e.message == 'String index out of range: 100'
+        } else if (javaVersion.startsWith('10')) {
+            e.message == 'begin 99, end 100, length 21'
+        }
 	}
 
 }
