@@ -24,7 +24,7 @@ class PersonDAOSpec extends Specification {
             people*.last.contains(it)
         }
 //		['Archer','Sisko'].each {
-//			assert people.last.contains(it)
+//			assert lastNames.contains(it)
 //		}
 
         assertThat(lastNames,
@@ -32,16 +32,16 @@ class PersonDAOSpec extends Specification {
     }
 
     @Unroll
-    def 'findById returns #first #last with id #id'(Integer id, String first, String last) {
+    def 'findById returns #first_name #last_name with id #person_id'() {
         when:
-        Person p = dao.findById(id)
+        Person p = dao.findById(person_id)
 
         then:
-        p.first == first
-        p.last == last
+        p.first == first_name
+        p.last == last_name
 
         where:
-        [id, first, last] << sql.rows('select id, first, last from people')
+        [person_id, first_name, last_name] << sql.rows('select id, first, last from people')
     }
 
     def 'insert and delete a new person'() {
