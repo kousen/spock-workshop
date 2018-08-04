@@ -40,6 +40,7 @@ class TribbleSpec extends Specification {
             throw new Exception()
         }
         0 * koloth.howlAtDeath()
+        0 * _
         reaction == null
         thrown(Exception)
     }

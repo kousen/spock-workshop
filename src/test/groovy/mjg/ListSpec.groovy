@@ -34,7 +34,7 @@ class ListSpec extends Specification {
         strings.size() == old(strings.size()) + 1
     }
 
-    def 'left-shift changes the list itself'() {
+    def 'can subtract elements from the list'() {
         when:
         strings << 'and'
         strings << 'more'
