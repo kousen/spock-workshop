@@ -44,7 +44,73 @@ class TribbleSpec extends Specification {
         reaction == null
         thrown(Exception)
     }
-    
+
+    // Note: Spock mock tests are in
+    // spock-specs/src/test/groovy/org/spockframework/smoke/mock directory
+    def 'spy on vulcan using constructor'() {
+        given:
+        def spy = Spy(TrekVulcan)
+
+        when:
+        String reaction = tribble.react(spy)
+
+
+        then:
+        1 * spy.soothe()
+        reaction == "purr, purr"
+    }
+
+    def 'spy on vulcan using object instantiated in method'() {
+        given:
+        def spy = Spy(new TrekVulcan())
+
+        when:
+        String reaction = tribble.react(spy)
+
+
+        then:
+        1 * spy.soothe()
+        reaction == "purr, purr"
+    }
+
+    def 'spy on vulcan using existing object'() {
+        given:
+        def spock = new TrekVulcan()
+        def spy = Spy(spock)
+
+        when:
+        String reaction = tribble.react(spy)
+
+
+        then:
+        1 * spy.soothe()
+        reaction == "purr, purr"
+    }
+
+    def "global spy passes through to static method"() {
+        given:
+        GroovySpy(TrekVulcan, global: true)
+
+        when:
+        String reaction =  TrekVulcan.defaultReaction()
+
+        then:
+        1 * TrekVulcan.defaultReaction()
+        reaction == 'raises eyebrow'
+    }
+
+    def "global spy can mock static method"() {
+        given:
+        GroovySpy(TrekVulcan, global: true)
+
+        when:
+        String reaction =  TrekVulcan.defaultReaction()
+
+        then:
+        1 * TrekVulcan.defaultReaction() >> "Dude, where's my car?"
+        reaction == "Dude, where's my car?"
+    }
+
     def "number of tribbles in storage compartment"() {
         given: "average litter of 10"
 		// ... implementation ...
