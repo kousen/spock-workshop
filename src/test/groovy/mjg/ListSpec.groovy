@@ -94,6 +94,7 @@ class ListSpec extends Specification {
         strings[99]
 
         then:
+        !strings[99]
         // verify that NO exceptions are thrown
         noExceptionThrown()
     }
