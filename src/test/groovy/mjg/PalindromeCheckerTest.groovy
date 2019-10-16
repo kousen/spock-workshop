@@ -2,6 +2,9 @@ package mjg
 
 import org.junit.Test
 
+import static org.junit.Assert.assertTrue
+
+
 class PalindromeCheckerTest {
 	PalindromeChecker checker = new PalindromeChecker()
 
@@ -13,6 +16,7 @@ class PalindromeCheckerTest {
 	@Test
 	public void testIsPalindrome() {
 		assert checker.isPalindrome("Flee to me, remote elf!")
+		assertTrue(checker.isPalindrome("Flee to me, remote elf!"))
 	}
 
 }

@@ -106,6 +106,13 @@ class PersonResourceSpec extends Specification {
 
         then:
         "$response.data.first $response.data.last" == 'James T. Kirk'
+
+        when:
+        response = client.put(path: "people/${kirk.data.id}",
+                contentType: ContentType.JSON, body: [id: 3, first: 'James', last: 'Kirk'])
+
+        then:
+        "$response.data.first $response.data.last" == 'James Kirk'
     }
 
     private List getAll() {
