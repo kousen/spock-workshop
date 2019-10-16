@@ -4,7 +4,8 @@ import groovy.json.JsonSlurper
 
 class ExchangeRateService {
     private final static String URL =
-            'https://openexchangerates.org/api/latest.json?app_id=df12e49e55a34cf0927f592c2a36f8b0'
+            'https://openexchangerates.org/api/latest.json?' +
+                    'app_id=df12e49e55a34cf0927f592c2a36f8b0'
     private final static ExchangeRateService instance = new ExchangeRateService()
 
     Map<String, BigDecimal> rates = [:]
