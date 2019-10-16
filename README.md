@@ -13,3 +13,11 @@ To create Eclipse project files:
 
 To use in Idea, just import the project as a Gradle project and navigate to build.gradle.
 
+Files with commented instructions:
+* `StringSpec.groovy`
+* `PersonSpec.groovy`
+* `MyFirstSpec.groovy`
+* `ListSpec.groovy`
+* `GroovyUtilityMethodsSpec.groovy`
+* `JavaUtilityMethodsSpec.groovy`
+

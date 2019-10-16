@@ -33,7 +33,7 @@ class JavaUtilityMethodsSpec extends Specification {
         true
 
         where:
-        x << []
+        x << [2]
     }
 
     /**

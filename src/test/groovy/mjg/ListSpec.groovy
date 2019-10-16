@@ -18,6 +18,7 @@ class ListSpec extends Specification {
     def "append a string"() {
         when:
         // use the left shift operator to append a new element
+        true
 
         then:
         // check that the new size is the old size + 1
@@ -30,6 +31,7 @@ class ListSpec extends Specification {
 
         when:
         // append a new element to 'empty'
+        true
 
         then:
         // check that a NullPointerException is thrown
@@ -40,6 +42,7 @@ class ListSpec extends Specification {
         when:
         // access each element of the list
         // use an index beyond the end of the list
+        true
 
         then:
         // verify that NO exceptions are thrown
