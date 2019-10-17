@@ -30,6 +30,7 @@ class TribbleSpec extends Specification {
     }
 
     def "reacts badly to Klingons"() {
+        setup:
         Klingon koloth = Mock()
         
         when:
